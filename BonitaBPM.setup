@@ -38,6 +38,13 @@
     <description>Initialize JDT's package explorer to show working sets as its root objects and have hierarchical package explorer</description>
   </setupTask>
   <setupTask
+      xsi:type="setup:ResourceCreationTask"
+      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;org.eclipse.ui.internal.views.markers.FiltersConfigurationDialog&quot;>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;All Errors&quot; key=&quot;SELECTED_FILTER_GROUP&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;list key=&quot;PREV_SELECTED_ELEMENTS&quot;>&#xD;&#xA;&#x9;&#x9;&lt;/list>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>"
+      targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml"
+      encoding="UTF-8">
+    <description>Initialize Problem view to show Errors relatives to the selected Project</description>
+  </setupTask>
+  <setupTask
       xsi:type="setup.p2:P2Task">
     <requirement
         name="org.eclipse.recommenders.rcp.feature.feature.group"/>

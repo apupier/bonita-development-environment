@@ -1515,6 +1515,14 @@
           key="/instance/org.eclipse.mylyn.team.ui/org.eclipse.mylyn.team.commit.template"
           value="$${task.key}: $${task.description}&#xD;&#xA;&#xD;&#xA;$${task.url}"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.codehaus.groovy.eclipse.compilerResolver">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.codehaus.groovy.eclipse.compilerResolver/groovy.compiler.level"
+          value="18"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -1661,6 +1669,7 @@
       <sourceLocator
           rootFolder="${git.clone.location}"
           locateNestedProjects="true"/>
+      <description>Import Engine Maven projects</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1700,6 +1709,7 @@
                 pattern="bonita-migration.*/.*"/>
           </predicate>
         </workingSet>
+        <description>Migration Working sets</description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task">
@@ -1721,6 +1731,7 @@
         <sourceLocator
             rootFolder="${git.clone.migration.location}"
             locateNestedProjects="true"/>
+        <description>Import Engine Migration projects</description>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1730,6 +1741,7 @@
           xsi:type="projects:ProjectsImportTask">
         <sourceLocator
             rootFolder="${git.clone.common.location}"/>
+        <description>Import LaunchConfiguration project</description>
       </setupTask>
     </setupTask>
     <stream

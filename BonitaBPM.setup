@@ -1530,6 +1530,14 @@
           key="/instance/org.codehaus.groovy.eclipse.compilerResolver/groovy.compiler.level"
           value="18"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="com.atlassian.connector.eclipse.monitor.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/com.atlassian.connector.eclipse.monitor.ui/com.atlassian.connector.eclipse.monitor.usage.enabled"
+          value="false"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -1940,6 +1948,84 @@
     </setupTask>
     <stream
         name="master"/>
+  </project>
+  <project name="portal"
+      label="Portal">
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.web"
+        remoteURI="bonitasoft/bonita-web">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="inherit">
+          <value>github.remoteURIs</value>
+        </detail>
+        <detail
+            key="label">
+          <value>${scope.project.label} Github repository</value>
+        </detail>
+        <detail
+            key="target">
+          <value>remoteURI</value>
+        </detail>
+      </annotation>
+      <description>${scope.project.label}</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="Web common">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern="common/.*"/>
+      </workingSet>
+      <workingSet
+          name="Web forms">
+        <predicate
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/forms/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern="forms/.*"/>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Web Portal">
+        <predicate
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern="portal/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern="server/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern="test-toolkit/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern="looknfeel/.*"/>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Web Bonita Home">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern="bonita-home/.*"/>
+      </workingSet>
+    </setupTask>
+    <setupTask
+        xsi:type="maven:MavenImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.web.location}"
+          locateNestedProjects="true"/>
+    </setupTask>
+    <stream
+        name="master"
+        label=""/>
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

@@ -62,6 +62,8 @@
         name="org.eclipse.m2e.wtp.feature.feature.group"/>
     <requirement
         name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.github.feature.feature.group"/>
     <repository
         url="http://update.eclemma.org/"/>
     <repository
@@ -1572,6 +1574,7 @@
             key="org.eclipse.mylyn.tasks.core.synchronization.aut"
             value="false"/>
       </query>
+      <description>Bonita BPM Community JIRA</description>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">

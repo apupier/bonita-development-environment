@@ -5,6 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:launching="http://www.eclipse.org/oomph/setup/launching/1.0"
     xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
@@ -13,7 +14,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="bonita.bpm"
     label="Bonita BPM">
   <setupTask
@@ -1540,6 +1541,14 @@
           key="/instance/com.atlassian.connector.eclipse.monitor.ui/com.atlassian.connector.eclipse.monitor.usage.enabled"
           value="false"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.core.resources">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/encoding"
+          value="UTF-8"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -1761,6 +1770,11 @@
             rootFolder="${git.clone.common.location}"/>
         <description>Import LaunchConfiguration project</description>
       </setupTask>
+      <setupTask
+          xsi:type="launching:LaunchTask"
+          launcher="bonita-development-environment/Engine/LaunchConfigurations\bonita-home cleanhome.xml.launch">
+        <description>Clean Bonita Home</description>
+      </setupTask>
     </setupTask>
     <stream
         name="master"/>
@@ -1976,13 +1990,28 @@
       <description>${scope.project.label}</description>
     </setupTask>
     <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.portal.js"
+        remoteURI="bonitasoft/bonita-portal-js">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="inherit">
+          <value>github.remoteURIs</value>
+        </detail>
+        <detail
+            key="label">
+          <value>${scope.project.label} Github repository</value>
+        </detail>
+        <detail
+            key="target">
+          <value>remoteURI</value>
+        </detail>
+      </annotation>
+      <description>Github Repository for Community Portal JS</description>
+    </setupTask>
+    <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
-      <workingSet
-          name="Web common">
-        <predicate
-            xsi:type="predicates:LocationPredicate"
-            pattern="common/.*"/>
-      </workingSet>
       <workingSet
           name="Web forms">
         <predicate
@@ -1992,7 +2021,7 @@
               pattern=".*/forms/.*"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern="forms/.*"/>
+              pattern=".*/forms"/>
         </predicate>
       </workingSet>
       <workingSet
@@ -2001,23 +2030,33 @@
             xsi:type="predicates:OrPredicate">
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern="portal/.*"/>
+              pattern=".*/portal"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern="server/.*"/>
+              pattern=".*/server"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern="test-toolkit/.*"/>
+              pattern=".*/test-toolkit"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern="looknfeel/.*"/>
+              pattern=".*/looknfeel"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/common"/>
         </predicate>
       </workingSet>
       <workingSet
           name="Web Bonita Home">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern="bonita-home/.*"/>
+            pattern=".*/bonita-home"/>
+      </workingSet>
+      <workingSet
+          name="Web JS"
+          id="">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="bonita-portal-js"/>
       </workingSet>
     </setupTask>
     <setupTask
@@ -2025,6 +2064,19 @@
       <sourceLocator
           rootFolder="${git.clone.web.location}"
           locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${git.clone.portal.js.location}"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="angularjs-eclipse-feature.feature.group"/>
+      <repository
+          url="http://oss.opensagres.fr/angularjs-eclipse/0.6.0/"/>
+      <repository
+          url="http://download.eclipse.org/webtools/updates"/>
+      <repository
+          url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
     </setupTask>
     <stream
         name="master"

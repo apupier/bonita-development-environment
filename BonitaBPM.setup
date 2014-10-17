@@ -1893,11 +1893,11 @@
       label="Connectors">
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Twitter">
+        name="Alfresco">
       <setupTask
           xsi:type="git:GitCloneTask"
-          id="git.clone.twitter"
-          remoteURI="bonitasoft/bonita-connector-twitter">
+          id="git.clone.alfresco"
+          remoteURI="bonitasoft/bonita-connector-alfresco">
         <annotation
             source="http://www.eclipse.org/oomph/setup/InducedChoices">
           <detail
@@ -1906,7 +1906,7 @@
           </detail>
           <detail
               key="label">
-            <value>${scope.project.label} Twitter Github repository</value>
+            <value>${scope.project.label} alfresco Github repository</value>
           </detail>
           <detail
               key="target">
@@ -1918,20 +1918,297 @@
       <setupTask
           xsi:type="maven:MavenImportTask">
         <sourceLocator
-            rootFolder="${git.clone.twitter.location}"/>
+            rootFolder="${git.clone.alfresco.location}"/>
       </setupTask>
       <setupTask
           xsi:type="setup.workingsets:WorkingSetTask">
         <workingSet
-            name="Twitter">
+            name="Alfresco"
+            id="">
           <predicate
               xsi:type="predicates:OrPredicate">
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*twitter.*/.*"/>
+                pattern=".*/.*alfresco.*"/>
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*twitter.*"/>
+                pattern=".*/.*alfresco.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="CMIS">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.alfresco"
+          remoteURI="bonitasoft/bonita-connector-alfresco">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} CMIS Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.alfresco.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Alfresco"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*alfresco.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*alfresco.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Database">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.database"
+          remoteURI="bonitasoft/bonita-connector-database">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} database Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.database.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Database"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*database.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*database.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Email">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.cmis"
+          remoteURI="bonitasoft/bonita-connector-cmis">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} email Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.cmis.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="CMIS"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*cmis.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*cmis.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jasper">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.jasper"
+          remoteURI="bonitasoft/bonita-connector-jasper">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} Jasper Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.jasper.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Jasper"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*jasper.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*jasper.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Salesforce">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.salesforce"
+          remoteURI="bonitasoft/bonita-connector-salesforce">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} Salesforce Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.salesforce.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Salesforce"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*salesforce.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*salesforce.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="SAP">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.sap"
+          remoteURI="bonitasoft/bonita-connector-sap">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} SAP Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.sap.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="SAP"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*sap.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*sap.*/.*"/>
           </predicate>
         </workingSet>
       </setupTask>
@@ -1984,11 +2261,11 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Email">
+        name="Sugar CRM">
       <setupTask
           xsi:type="git:GitCloneTask"
-          id="git.clone.email"
-          remoteURI="bonitasoft/bonita-connector-email">
+          id="git.clone.sugarcrm"
+          remoteURI="bonitasoft/bonita-connector-sugarcrm">
         <annotation
             source="http://www.eclipse.org/oomph/setup/InducedChoices">
           <detail
@@ -1997,7 +2274,7 @@
           </detail>
           <detail
               key="label">
-            <value>${scope.project.label} email Github repository</value>
+            <value>${scope.project.label} Sugar CRM Github repository</value>
           </detail>
           <detail
               key="target">
@@ -2009,21 +2286,174 @@
       <setupTask
           xsi:type="maven:MavenImportTask">
         <sourceLocator
-            rootFolder="${git.clone.email.location}"/>
+            rootFolder="${git.clone.sugarcrm.location}"/>
       </setupTask>
       <setupTask
           xsi:type="setup.workingsets:WorkingSetTask">
         <workingSet
-            name="Email"
+            name="Sugar CRM"
             id="">
           <predicate
               xsi:type="predicates:OrPredicate">
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*email.*"/>
+                pattern=".*/.*sugarcrm.*"/>
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*email.*/.*"/>
+                pattern=".*/.*sugarcrm.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id=""
+        name="Talend">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.talend"
+          remoteURI="bonitasoft/bonita-connector-talend">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <annotation
+              source="http://www.eclipse.org/oomph/setup/InducedChoices">
+            <detail
+                key="inherit">
+              <value>github.remoteURIs</value>
+            </detail>
+            <detail
+                key="label">
+              <value>${scope.project.label} email Github repository</value>
+            </detail>
+            <detail
+                key="target">
+              <value>remoteURI</value>
+            </detail>
+          </annotation>
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} Talend Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.talend.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Talend"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*talend.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*talend.*/.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Twitter">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.twitter"
+          remoteURI="bonitasoft/bonita-connector-twitter">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} Twitter Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.twitter.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Twitter">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*twitter.*/.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*twitter.*"/>
+          </predicate>
+        </workingSet>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Webservice">
+      <setupTask
+          xsi:type="git:GitCloneTask"
+          id="git.clone.webservice"
+          remoteURI="bonitasoft/bonita-connector-webservice">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/InducedChoices">
+          <detail
+              key="inherit">
+            <value>github.remoteURIs</value>
+          </detail>
+          <detail
+              key="label">
+            <value>${scope.project.label} webservice Github repository</value>
+          </detail>
+          <detail
+              key="target">
+            <value>remoteURI</value>
+          </detail>
+        </annotation>
+        <description>${scope.project.label}</description>
+      </setupTask>
+      <setupTask
+          xsi:type="maven:MavenImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.webservice.location}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.workingsets:WorkingSetTask">
+        <workingSet
+            name="Webservice"
+            id="">
+          <predicate
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*webservice.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/.*webservice.*/.*"/>
           </predicate>
         </workingSet>
       </setupTask>

@@ -1662,14 +1662,26 @@
       <workingSet
           name="Engine BPM">
         <predicate
-            xsi:type="predicates:LocationPredicate"
-            pattern=".*/bpm/.*"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-engine/bpm/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-engine/bpm"/>
+        </predicate>
       </workingSet>
       <workingSet
           name="Engine Services">
         <predicate
-            xsi:type="predicates:LocationPredicate"
-            pattern=".*/services/.*"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-engine/services/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-engine/services"/>
+        </predicate>
       </workingSet>
       <workingSet
           name="Engine Tests">
@@ -1677,17 +1689,17 @@
             xsi:type="predicates:OrPredicate">
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/bonita-integration-tests/.*"/>
+              pattern=".*/bonita-engine/bonita-integration-tests/.*"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/bonita-integration-tests"/>
+              pattern=".*/bonita-engine/bonita-integration-tests"/>
         </predicate>
       </workingSet>
       <workingSet
           name="Engine Config Files">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*/bonita-home"/>
+            pattern=".*/bonita-engine/bonita-home"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
@@ -1733,7 +1745,7 @@
                 pattern=".*/bonita-migration.*/.*"/>
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern="bonita-migration.*/.*"/>
+                pattern=".*/bonita-migration"/>
           </predicate>
         </workingSet>
         <description>Migration Working sets</description>

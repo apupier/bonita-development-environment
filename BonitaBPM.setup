@@ -1549,6 +1549,14 @@
           key="/instance/org.eclipse.core.resources/encoding"
           value="UTF-8"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.mylyn.resources.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.mylyn.resources.ui/org.eclipse.mylyn.ide.resources.ignore.pattern.version"
+          value="1.0"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

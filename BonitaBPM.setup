@@ -1760,6 +1760,13 @@
             locateNestedProjects="true"/>
         <description>Import Engine Migration projects</description>
       </setupTask>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          id=""
+          option="-groovy.compiler.level"
+          value="18">
+        <description>Set Groovy compiler levelk to 1.8 by default on the workspace</description>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"

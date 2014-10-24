@@ -1858,7 +1858,7 @@
           name="Plugins">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*/plugins/.*"/>
+            pattern=".*/bonita-studio/.*/plugins/.*"/>
       </workingSet>
       <workingSet
           name="Tests-Dependencies">
@@ -1876,7 +1876,7 @@
           name="Tests">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*/tests/.*"/>
+            pattern=".*/bonita-studio/.*/tests/.*"/>
       </workingSet>
       <workingSet
           name="Features">
@@ -1894,6 +1894,15 @@
           <operand
               xsi:type="predicates:LocationPredicate"
               pattern=".*/all-in-one/.*"/>
+          <operand
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/platform/.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*/all-in-one/.*"/>
+          </operand>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>

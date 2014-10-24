@@ -14,9 +14,8 @@
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
 <stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;resources&gt;&#13;&#10;&lt;item path=&quot;/org.bonitasoft.studio.diagram&quot; type=&quot;4&quot;/&gt;&#13;&#10;&lt;item path=&quot;/org.bonitasoft.studio.diagram.form&quot; type=&quot;4&quot;/&gt;&#13;&#10;&lt;item path=&quot;/org.bonitasoft.studio.model&quot; type=&quot;4&quot;/&gt;&#13;&#10;&lt;item path=&quot;/org.bonitasoft.studio.model.edit&quot; type=&quot;4&quot;/&gt;&#13;&#10;&lt;/resources&gt;}"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
-<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_67"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:/org.bonitasoft.studio-models}"/>
 </launchConfiguration>

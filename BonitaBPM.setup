@@ -1604,6 +1604,16 @@
             key="org.eclipse.mylyn.tasks.core.synchronization.aut"
             value="false"/>
       </query>
+      <query
+          summary="Assigned to me (Bonita BPM Community)"
+          url="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+resolution+in+%28Unresolved%29+AND+assignee+in+%28currentUser%28%29%29+">
+        <attribute
+            key="FilterCustomUrl"
+            value="https://bonita.atlassian.net/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=10100&amp;resolution=-1&amp;assigneeSelect=issue_current_user"/>
+        <attribute
+            key="FilterCustomJqlUrl"
+            value="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+resolution+in+%28Unresolved%29+AND+assignee+in+%28currentUser%28%29%29+"/>
+      </query>
       <description>Bonita BPM Community JIRA</description>
     </setupTask>
     <setupTask

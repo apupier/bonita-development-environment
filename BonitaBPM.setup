@@ -1729,7 +1729,7 @@
           name="Engine Config Files">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*/bonita-engine/bonita-home"/>
+            pattern=".*/bonita-engine/bpm/bonita-home"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>

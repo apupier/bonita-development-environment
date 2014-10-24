@@ -1583,7 +1583,7 @@
           url="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+status+in+%281%2C3%2C4%29+AND+resolution+in+%28%22Unresolved%22%29+">
         <attribute
             key="FilterCustomUrl"
-            value="https://bonita.atlassian.net/secure/IssueNavigator.jspa?mode=hide&amp;amp;reset=true&amp;amp;pid=10100&amp;amp;status=1&amp;amp;status=3&amp;amp;status=4&amp;amp;resolution=6&amp;amp;query=&amp;amp;summary=true&amp;amp;description=true"/>
+            value="https://bonita.atlassian.net/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=10100&amp;status=1&amp;status=3&amp;status=4&amp;resolution=6&amp;query=&amp;summary=true&amp;description=true"/>
         <attribute
             key="FilterCustomJqlUrl"
             value="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+status+in+%281%2C3%2C4%29+AND+resolution+in+%28%22Unresolved%22%29+"/>

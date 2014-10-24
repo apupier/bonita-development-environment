@@ -1625,26 +1625,6 @@
       <repository
           url="http://update.atlassian.com/atlassian-eclipse-plugin/rest/e3.7"/>
     </setupTask>
-    <setupTask
-        xsi:type="mylyn:MylynQueriesTask"
-        connectorKind="githubPullRequests"
-        repositoryURL="https://github.com/bonitasoft/bonita-engine/pulls">
-      <query
-          summary="Opened Pull Requests Bonita BPM Community Engine"
-          url="">
-        <attribute
-            key="state"
-            value="open::"/>
-      </query>
-      <query
-          summary="Closed Pull Requests Bonita BPM Community Engine"
-          url="">
-        <attribute
-            key="state"
-            value="close::"/>
-      </query>
-      <description>Bonita BPM Community Engine Pull Requests</description>
-    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
@@ -1844,6 +1824,26 @@
           launcher="bonita-development-environment/Engine/LaunchConfigurations\bonita-home cleanhome.xml.launch">
         <description>Clean Bonita Home</description>
       </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="mylyn:MylynQueriesTask"
+        connectorKind="githubPullRequests"
+        repositoryURL="https://github.com/bonitasoft/bonita-engine/pulls">
+      <query
+          summary="Opened Pull Requests Bonita BPM Community Engine"
+          url="">
+        <attribute
+            key="state"
+            value="open::"/>
+      </query>
+      <query
+          summary="Closed Pull Requests Bonita BPM Community Engine"
+          url="">
+        <attribute
+            key="state"
+            value="close::"/>
+      </query>
+      <description>Bonita BPM Community Engine Pull Requests</description>
     </setupTask>
     <stream
         name="master"/>

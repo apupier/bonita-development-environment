@@ -1591,6 +1591,19 @@
             key="org.eclipse.mylyn.tasks.core.synchronization.aut"
             value="false"/>
       </query>
+      <query
+          summary="Bonita BPM Resolved Opened issues"
+          url="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+status+in+%285%2C6%29+">
+        <attribute
+            key="FilterCustomUrl"
+            value="https://bonita.atlassian.net/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=10100&amp;status=5&amp;status=6&amp;query=&amp;summary=true&amp;description=true"/>
+        <attribute
+            key="FilterCustomJqlUrl"
+            value="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+status+in+%285%2C6%29+"/>
+        <attribute
+            key="org.eclipse.mylyn.tasks.core.synchronization.aut"
+            value="false"/>
+      </query>
       <description>Bonita BPM Community JIRA</description>
     </setupTask>
     <setupTask

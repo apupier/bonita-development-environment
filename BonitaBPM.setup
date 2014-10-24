@@ -1592,7 +1592,7 @@
             value="false"/>
       </query>
       <query
-          summary="Bonita BPM Resolved Opened issues"
+          summary="Bonita BPM Community Resolved Opened issues"
           url="https://bonita.atlassian.net/issues/?jql=project+in+%28%22BBPMC%22%29+AND+status+in+%285%2C6%29+">
         <attribute
             key="FilterCustomUrl"

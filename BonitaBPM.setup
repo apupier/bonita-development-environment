@@ -2001,8 +2001,8 @@
         name="CMIS">
       <setupTask
           xsi:type="git:GitCloneTask"
-          id="git.clone.alfresco"
-          remoteURI="bonitasoft/bonita-connector-alfresco">
+          id="git.clone.cmis"
+          remoteURI="bonitasoft/bonita-connector-cmis">
         <annotation
             source="http://www.eclipse.org/oomph/setup/InducedChoices">
           <detail
@@ -2023,21 +2023,21 @@
       <setupTask
           xsi:type="maven:MavenImportTask">
         <sourceLocator
-            rootFolder="${git.clone.alfresco.location}"/>
+            rootFolder="${git.clone.cmis.location}"/>
       </setupTask>
       <setupTask
           xsi:type="setup.workingsets:WorkingSetTask">
         <workingSet
-            name="Alfresco"
+            name="CMIS"
             id="">
           <predicate
               xsi:type="predicates:OrPredicate">
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*alfresco.*"/>
+                pattern=".*/.*cmis.*"/>
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*alfresco.*/.*"/>
+                pattern=".*/.*cmis.*/.*"/>
           </predicate>
         </workingSet>
       </setupTask>
@@ -2093,8 +2093,8 @@
         name="Email">
       <setupTask
           xsi:type="git:GitCloneTask"
-          id="git.clone.cmis"
-          remoteURI="bonitasoft/bonita-connector-cmis">
+          id="git.clone.email"
+          remoteURI="bonitasoft/bonita-connector-email">
         <annotation
             source="http://www.eclipse.org/oomph/setup/InducedChoices">
           <detail
@@ -2115,21 +2115,21 @@
       <setupTask
           xsi:type="maven:MavenImportTask">
         <sourceLocator
-            rootFolder="${git.clone.cmis.location}"/>
+            rootFolder="${git.clone.email.location}"/>
       </setupTask>
       <setupTask
           xsi:type="setup.workingsets:WorkingSetTask">
         <workingSet
-            name="CMIS"
+            name="EMAIL"
             id="">
           <predicate
               xsi:type="predicates:OrPredicate">
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*cmis.*"/>
+                pattern=".*/.*email.*"/>
             <operand
                 xsi:type="predicates:LocationPredicate"
-                pattern=".*/.*cmis.*/.*"/>
+                pattern=".*/.*email.*/.*"/>
           </predicate>
         </workingSet>
       </setupTask>
@@ -2366,7 +2366,7 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id=""
+        id="Talend"
         name="Talend">
       <setupTask
           xsi:type="git:GitCloneTask"

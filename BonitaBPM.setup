@@ -1845,6 +1845,13 @@
       </query>
       <description>Bonita BPM Community Engine Pull Requests</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;lifecycleMappingMetadata>&#xD;&#xA;  &lt;pluginExecutions>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xD;&#xA;        &lt;artifactId>maven-dependency-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>2.7&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>unpack&lt;/goal>&#xD;&#xA;          &lt;goal>copy&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;  &lt;/pluginExecutions>&#xD;&#xA;&lt;/lifecycleMappingMetadata>&#xD;&#xA;"
+        targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml"
+        encoding="UTF-8">
+      <description>Ignore some maven plugins not covered by m2e</description>
+    </setupTask>
     <stream
         name="master"/>
   </project>

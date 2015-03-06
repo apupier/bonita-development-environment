@@ -1840,7 +1840,9 @@
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="githubPullRequests"
-        repositoryURL="https://github.com/bonitasoft/bonita-engine/pulls">
+        repositoryURL="https://github.com/bonitasoft/bonita-engine/pulls"
+        userID="${github.user.id}"
+        password="">
       <query
           summary="Opened Pull Requests Bonita BPM Community Engine"
           url="">

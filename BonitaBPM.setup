@@ -1648,6 +1648,18 @@
     </annotation>
     <description>Common Git repo with setup files</description>
   </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="github.repository.userowner.id"
+      name="github.repository.userowner.id"
+      label="Github Repository UserOwner ID used for cloning">
+    <description>
+      It is the User Owner Id of the repository that will be cloned.
+      For Developers with write access to Bonita source code, please use &quot;bonitasoft&quot;.
+      For others, please use your own github Account ID. It requires that you have cloned the github repository.
+      It will allow you to manage Pull request.
+    </description>
+  </setupTask>
   <project name="engine"
       label="Engine">
     <setupTask
@@ -1669,7 +1681,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone"
-        remoteURI="bonitasoft/bonita-engine">
+        remoteURI="${github.repository.userowner.id}/bonita-engine">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
         <detail
@@ -1746,7 +1758,7 @@
       <setupTask
           xsi:type="git:GitCloneTask"
           id="git.clone.migration"
-          remoteURI="bonitasoft/bonita-migration">
+          remoteURI="${github.repository.userowner.id}/bonita-migration">
         <annotation
             source="http://www.eclipse.org/oomph/setup/InducedChoices">
           <detail
@@ -1861,7 +1873,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone.studio"
-        remoteURI="bonitasoft/bonita-studio">
+        remoteURI="${github.repository.userowner.id}/bonita-studio">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
         <detail
@@ -2532,7 +2544,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone.web"
-        remoteURI="bonitasoft/bonita-web">
+        remoteURI="${github.repository.userowner.id}/bonita-web">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
         <detail
@@ -2553,7 +2565,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone.portal.js"
-        remoteURI="bonitasoft/bonita-portal-js">
+        remoteURI="${github.repository.userowner.id}/bonita-portal-js">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
         <detail

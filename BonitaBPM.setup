@@ -1241,6 +1241,10 @@
           name="org.eclipse.jdt.ui">
         <setupTask
             xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_code_templates"
+            value="&lt;?xml version\=&quot;1.0&quot; encoding\=&quot;UTF-8&quot; standalone\=&quot;no&quot;?>&lt;templates>&lt;template autoinsert\=&quot;false&quot; context\=&quot;newtype_context&quot; deleted\=&quot;false&quot; description\=&quot;Newly created files&quot; enabled\=&quot;true&quot; id\=&quot;org.eclipse.jdt.ui.text.codetemplates.newtype&quot; name\=&quot;newtype&quot;>/**\r\n * Copyright (C) 2015 BonitaSoft S.A.\r\n * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble\r\n * This library is free software; you can redistribute it and/or modify it under the terms\r\n * of the GNU Lesser General Public License as published by the Free Software Foundation\r\n * version 2.1 of the License.\r\n * This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\r\n * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\r\n * See the GNU Lesser General Public License for more details.\r\n * You should have received a copy of the GNU Lesser General Public License along with this\r\n * program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth\r\n * Floor, Boston, MA 02110-1301, USA. \r\n **/\r\n${package_declaration}\r\n\r\n${typecomment}\r\n${type_declaration}&lt;/template>&lt;/templates>"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
             key="/instance/org.eclipse.jdt.ui/editor_save_participant_org.eclipse.jdt.ui.postsavelistener.cleanup"
             value="true"/>
         <setupTask
@@ -1833,7 +1837,7 @@
       </setupTask>
       <setupTask
           xsi:type="launching:LaunchTask"
-          launcher="bonita-development-environment/Engine/LaunchConfigurations\bonita-home cleanhome.xml.launch">
+          launcher="bonita-development-environment/Engine/LaunchConfigurations\[Engine]Clean Local Integration Test Bonita Home.launch">
         <description>Clean Bonita Home</description>
       </setupTask>
     </setupTask>

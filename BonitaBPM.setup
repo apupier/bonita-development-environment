@@ -1235,6 +1235,18 @@
             xsi:type="setup:PreferenceTask"
             key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.wrap_outer_expressions_when_nested"
             value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.compiler.codegen.targetPlatform"
+            value="1.7"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.compiler.compliance"
+            value="1.7"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.compiler.codegen.source"
+            value="1.7"/>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"

@@ -1567,14 +1567,16 @@
       name="JIRA Community">
     <setupTask
         xsi:type="setup:VariableTask"
-        name="jira.community.username">
-      <description>Bonita JIRA Community Username</description>
+        name="jira.community.username"
+        label="Bonita JIRA Community Username">
+      <description>Bonita JIRA Community Username - https://bonita.atlassian.net</description>
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
         type="PASSWORD"
-        name="jira.community.password">
-      <description>Bonita JIRA Community Password</description>
+        name="jira.community.password"
+        label="Bonita JIRA Community Password">
+      <description>Bonita JIRA Community Password - https://bonita.atlassian.net</description>
     </setupTask>
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"

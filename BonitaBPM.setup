@@ -1772,76 +1772,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Migration">
-      <setupTask
-          xsi:type="git:GitCloneTask"
-          id="git.clone.migration"
-          remoteURI="${github.repository.userowner.id}/bonita-migration">
-        <annotation
-            source="http://www.eclipse.org/oomph/setup/InducedChoices">
-          <detail
-              key="inherit">
-            <value>github.remoteURIs</value>
-          </detail>
-          <detail
-              key="label">
-            <value>Engine Migration Github repository</value>
-          </detail>
-          <detail
-              key="target">
-            <value>remoteURI</value>
-          </detail>
-        </annotation>
-        <description>Engine Migration</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.workingsets:WorkingSetTask">
-        <workingSet
-            name="Engine Migration">
-          <predicate
-              xsi:type="predicates:OrPredicate">
-            <operand
-                xsi:type="predicates:LocationPredicate"
-                pattern=".*/bonita-migration.*/.*"/>
-            <operand
-                xsi:type="predicates:LocationPredicate"
-                pattern=".*/bonita-migration"/>
-          </predicate>
-        </workingSet>
-        <description>Migration Working sets</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task">
-        <requirement
-            name="org.springsource.ide.eclipse.gradle.feature.feature.group"/>
-        <requirement
-            name="org.codehaus.groovy.eclipse.feature.feature.group"/>
-        <requirement
-            name="org.codehaus.groovy.m2eclipse.feature.feature.group"/>
-        <requirement
-            name="org.codehaus.groovy18.feature.feature.group"/>
-        <repository
-            url="http://dist.springsource.com/release/TOOLS/update/e3.7/"/>
-        <repository
-            url="http://dist.springsource.org/milestone/GRECLIPSE/e4.4/"/>
-      </setupTask>
-      <setupTask
-          xsi:type="maven:MavenImportTask">
-        <sourceLocator
-            rootFolder="${git.clone.migration.location}"
-            locateNestedProjects="true"/>
-        <description>Import Engine Migration projects</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          id=""
-          option="-groovy.compiler.level"
-          value="18">
-        <description>Set Groovy compiler levelk to 1.8 by default on the workspace</description>
-      </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="Launch Configurations">
       <setupTask
           xsi:type="projects:ProjectsImportTask">
@@ -2674,6 +2604,78 @@
     <stream
         name="master"
         label=""/>
+  </project>
+  <project name="migration"
+      label="Migration"
+      logicalProjectContainer="/">
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.migration"
+        remoteURI="${github.repository.userowner.id}/bonita-migration">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="inherit">
+          <value>github.remoteURIs</value>
+        </detail>
+        <detail
+            key="label">
+          <value>Engine Migration Github repository</value>
+        </detail>
+        <detail
+            key="target">
+          <value>remoteURI</value>
+        </detail>
+      </annotation>
+      <description>Engine Migration</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="Engine Migration">
+        <predicate
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-migration.*/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-migration"/>
+        </predicate>
+      </workingSet>
+      <description>Migration Working sets</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.springsource.ide.eclipse.gradle.feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy.eclipse.feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy.m2eclipse.feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy18.feature.feature.group"/>
+      <repository
+          url="http://dist.springsource.com/release/TOOLS/update/e3.7/"/>
+      <repository
+          url="http://dist.springsource.org/milestone/GRECLIPSE/e4.4/"/>
+    </setupTask>
+    <setupTask
+        xsi:type="maven:MavenImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.migration.location}"
+          locateNestedProjects="true"/>
+      <description>Import Engine Migration projects</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        id=""
+        option="-groovy.compiler.level"
+        value="18">
+      <description>Set Groovy compiler levelk to 1.8 by default on the workspace</description>
+    </setupTask>
+    <stream
+        name="master"/>
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

@@ -1647,7 +1647,7 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.common"
-      remoteURI="http://www.github.com/apupier/bonita-development-environment"
+      remoteURI="https://github.com/apupier/bonita-development-environment"
       checkoutBranch="master">
     <description>Common Git repo with setup files</description>
   </setupTask>

@@ -2604,28 +2604,10 @@
             xsi:type="predicates:OrPredicate">
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/forms/.*"/>
+              pattern=".*/bonita-web/.*"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/forms"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/portal"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/server"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/test-toolkit"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/looknfeel"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/common"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*/bonita-home"/>
+              pattern=".*/bonita-web"/>
         </predicate>
       </workingSet>
       <workingSet

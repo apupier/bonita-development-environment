@@ -1771,11 +1771,16 @@
       </setupTask>
     </setupTask>
     <setupTask
+        xsi:type="setup:VariableTask"
+        type="PASSWORD"
+        name="github.password.mylyn.pull.request"
+        label="Github password to have Pull request available in Mylyn"/>
+    <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="githubPullRequests"
         repositoryURL="https://github.com/bonitasoft/bonita-engine/pulls"
         userID="${github.user.id}"
-        password="">
+        password="${github.password.mylyn.pull.request}">
       <query
           summary="Opened Pull Requests Bonita BPM Community Engine"
           url="">
@@ -2580,7 +2585,7 @@
       <requirement
           name="angularjs-eclipse-feature.feature.group"/>
       <repository
-          url="http://oss.opensagres.fr/angularjs-eclipse/0.6.0/"/>
+          url="http://oss.opensagres.fr/angularjs-eclipse/0.8.0/"/>
       <repository
           url="http://download.eclipse.org/webtools/updates"/>
       <repository

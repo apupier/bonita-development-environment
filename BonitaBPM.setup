@@ -8,13 +8,14 @@
     xmlns:launching="http://www.eclipse.org/oomph/setup/launching/1.0"
     xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
+    xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="bonita.bpm"
     label="Bonita BPM">
   <setupTask
@@ -1855,7 +1856,7 @@
           name="Tests">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*/bonita-studio/.*/tests/.*"/>
+            pattern=".*/tests/.*"/>
       </workingSet>
       <workingSet
           name="Features">
@@ -1869,19 +1870,10 @@
             xsi:type="predicates:OrPredicate">
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/platform/.*"/>
+              pattern=".*/platform"/>
           <operand
               xsi:type="predicates:LocationPredicate"
-              pattern=".*/all-in-one/.*"/>
-          <operand
-              xsi:type="predicates:OrPredicate">
-            <operand
-                xsi:type="predicates:LocationPredicate"
-                pattern=".*/platform/.*"/>
-            <operand
-                xsi:type="predicates:LocationPredicate"
-                pattern=".*/all-in-one/.*"/>
-          </operand>
+              pattern=".*/all-in-one"/>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
@@ -1893,7 +1885,10 @@
       <sourceLocator
           rootFolder="${git.clone.studio.location}/tests-dependencies"/>
       <sourceLocator
-          rootFolder="${git.clone.studio.location}/tests"/>
+          rootFolder="${git.clone.studio.location}/tests">
+        <excludedPath>org.bonitasoft.studio.jre.extension</excludedPath>
+        <excludedPath>org.bonitasoft.studio.tests.hotspot</excludedPath>
+      </sourceLocator>
       <sourceLocator
           rootFolder="${git.clone.studio.location}/patched-plugins"/>
       <sourceLocator
@@ -1903,8 +1898,57 @@
       <sourceLocator
           rootFolder="${git.clone.studio.location}/all-in-one"/>
     </setupTask>
+    <setupTask
+        xsi:type="pde:TargetPlatformTask"
+        name="remote_platform"/>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Preferences">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclips.pde.api.tools">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclips.pde.api.tools/missing_default_api_profile"
+            value="Ignore"/>
+      </setupTask>
+    </setupTask>
     <stream
         name="master"/>
+    <stream
+        name="MasterBugFixing">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Launch Configuration used to initialize Workspace">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="Code generation and Dependency retrieval">
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Generate Model Code">
+            <description>Generate code from model (EMF and GMF)</description>
+          </setupTask>
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Retrieve Connectors">
+            <description>Retrieve Bonita Connectors to embed in Studio</description>
+          </setupTask>
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Retrieve Console libs">
+            <description>Retrieve Tomcat bundle embedded in Studio</description>
+          </setupTask>
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Retrieve Page Designer war">
+            <description>Retrieve UI Designer embedded in Studio</description>
+          </setupTask>
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Retrieve Simulation Libs"/>
+        </setupTask>
+      </setupTask>
+    </stream>
     <description></description>
   </project>
   <project name="connectors"
@@ -2493,14 +2537,14 @@
         </detail>
         <detail
             key="label">
-          <value>${scope.project.label} Github repository</value>
+          <value>Bonita Web Github repository</value>
         </detail>
         <detail
             key="target">
           <value>remoteURI</value>
         </detail>
       </annotation>
-      <description>${scope.project.label}</description>
+      <description>Github Bonita Web repository</description>
     </setupTask>
     <setupTask
         xsi:type="git:GitCloneTask"
@@ -2514,7 +2558,7 @@
         </detail>
         <detail
             key="label">
-          <value>${scope.project.label} Github repository</value>
+          <value>Portal JS Github repository</value>
         </detail>
         <detail
             key="target">
@@ -2524,9 +2568,38 @@
       <description>Github Repository for Community Portal JS</description>
     </setupTask>
     <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.distrib"
+        remoteURI="${github.repository.userowner.id}/bonita-distrib">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="inherit">
+          <value>github.remoteURIs</value>
+        </detail>
+        <detail
+            key="label">
+          <value>Bonita Distrib Github repository</value>
+        </detail>
+        <detail
+            key="target">
+          <value>remoteURI</value>
+        </detail>
+      </annotation>
+      <description>Github Bonita Distrib repository</description>
+    </setupTask>
+    <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
       <workingSet
-          name="Web forms">
+          name="Web JS"
+          id="">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="bonita-portal-js"/>
+      </workingSet>
+      <workingSet
+          name="Bonita Web"
+          id="">
         <predicate
             xsi:type="predicates:OrPredicate">
           <operand
@@ -2535,12 +2608,6 @@
           <operand
               xsi:type="predicates:LocationPredicate"
               pattern=".*/forms"/>
-        </predicate>
-      </workingSet>
-      <workingSet
-          name="Web Portal">
-        <predicate
-            xsi:type="predicates:OrPredicate">
           <operand
               xsi:type="predicates:LocationPredicate"
               pattern=".*/portal"/>
@@ -2556,20 +2623,22 @@
           <operand
               xsi:type="predicates:LocationPredicate"
               pattern=".*/common"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-home"/>
         </predicate>
       </workingSet>
       <workingSet
-          name="Web Bonita Home">
+          name="Bonita Distrib">
         <predicate
-            xsi:type="predicates:LocationPredicate"
-            pattern=".*/bonita-home"/>
-      </workingSet>
-      <workingSet
-          name="Web JS"
-          id="">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="bonita-portal-js"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-distrib/.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*/bonita-distrib"/>
+        </predicate>
       </workingSet>
     </setupTask>
     <setupTask
@@ -2579,6 +2648,8 @@
           locateNestedProjects="true"/>
       <sourceLocator
           rootFolder="${git.clone.portal.js.location}"/>
+      <sourceLocator
+          rootFolder="${git.clone.distrib.location}"/>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">

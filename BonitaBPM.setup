@@ -2648,6 +2648,21 @@
       <repository
           url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Launch Configurations">
+      <setupTask
+          xsi:type="projects:ProjectsImportTask">
+        <sourceLocator
+            rootFolder="${git.clone.common.location}"/>
+        <description>Import LaunchConfiguration project</description>
+      </setupTask>
+      <setupTask
+          xsi:type="launching:LaunchTask"
+          launcher="[WEB]Web build without permutations">
+        <description>Build the Bonita Web project without permutation</description>
+      </setupTask>
+    </setupTask>
     <stream
         name="master"
         label=""/>

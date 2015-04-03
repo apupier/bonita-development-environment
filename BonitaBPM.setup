@@ -1956,7 +1956,7 @@
     <description></description>
   </project>
   <project name="connectors"
-      label="Connectors">
+      label="Connectors (Alpha)">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Alfresco">

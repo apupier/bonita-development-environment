@@ -1664,8 +1664,9 @@
       It will allow you to manage Pull request.
     </description>
   </setupTask>
-  <project name="engine"
-      label="Engine">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Maven Lifecycle">
     <setupTask
         xsi:type="setup.p2:P2Task">
       <requirement
@@ -1682,6 +1683,16 @@
           url="http://nl-mwensveen-m2e-extras.googlecode.com/git/p2/2.0.0"/>
       <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;lifecycleMappingMetadata>&#xD;&#xA;  &lt;pluginExecutions>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xD;&#xA;        &lt;artifactId>maven-dependency-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>2.4&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>unpack&lt;/goal>&#xD;&#xA;          &lt;goal>copy&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xD;&#xA;        &lt;artifactId>maven-jar-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>2.3.1&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>jar&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>ro.isdc.wro4j&lt;/groupId>&#xD;&#xA;        &lt;artifactId>wro4j-maven-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>1.7.0&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>run&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xD;&#xA;        &lt;artifactId>maven-compiler-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>3.1&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>testCompile&lt;/goal>&#xD;&#xA;          &lt;goal>compile&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;  &lt;/pluginExecutions>&#xD;&#xA;&lt;/lifecycleMappingMetadata>"
+        targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml"
+        encoding="UTF-8">
+      <description>Ignore some maven plugins not covered by m2e</description>
+    </setupTask>
+  </setupTask>
+  <project name="engine"
+      label="Engine">
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone"
@@ -1797,13 +1808,6 @@
             value="close::"/>
       </query>
       <description>Bonita BPM Community Engine Pull Requests</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:ResourceCreationTask"
-        content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;lifecycleMappingMetadata>&#xD;&#xA;  &lt;pluginExecutions>&#xD;&#xA;    &lt;pluginExecution>&#xD;&#xA;      &lt;pluginExecutionFilter>&#xD;&#xA;        &lt;groupId>org.apache.maven.plugins&lt;/groupId>&#xD;&#xA;        &lt;artifactId>maven-dependency-plugin&lt;/artifactId>&#xD;&#xA;        &lt;versionRange>2.7&lt;/versionRange>&#xD;&#xA;        &lt;goals>&#xD;&#xA;          &lt;goal>unpack&lt;/goal>&#xD;&#xA;          &lt;goal>copy&lt;/goal>&#xD;&#xA;        &lt;/goals>&#xD;&#xA;      &lt;/pluginExecutionFilter>&#xD;&#xA;      &lt;action>&#xD;&#xA;        &lt;ignore />&#xD;&#xA;      &lt;/action>&#xD;&#xA;    &lt;/pluginExecution>&#xD;&#xA;  &lt;/pluginExecutions>&#xD;&#xA;&lt;/lifecycleMappingMetadata>&#xD;&#xA;"
-        targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml"
-        encoding="UTF-8">
-      <description>Ignore some maven plugins not covered by m2e</description>
     </setupTask>
     <stream
         name="master"/>

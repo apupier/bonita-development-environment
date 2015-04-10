@@ -1536,6 +1536,22 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
+        name="Compiler settings">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.jdt.core">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org/eclipse.jdt.core.compiler.compliance"
+            value="1.7"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org/eclipse.jdt.core.compiler.source"
+            value="1.7"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
         name="org.eclipse.mylyn.team.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"

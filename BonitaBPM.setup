@@ -1966,6 +1966,9 @@
           <setupTask
               xsi:type="launching:LaunchTask"
               launcher="Retrieve Simulation Libs"/>
+          <setupTask
+              xsi:type="launching:LaunchTask"
+              launcher="Retrieve Bonitasoft Default Theme"/>
         </setupTask>
       </setupTask>
     </stream>

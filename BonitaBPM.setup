@@ -1934,8 +1934,6 @@
       </setupTask>
     </setupTask>
     <stream
-        name="master"/>
-    <stream
         name="MasterBugFixing">
       <setupTask
           xsi:type="setup:CompoundTask"

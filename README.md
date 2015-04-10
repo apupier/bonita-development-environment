@@ -1,7 +1,9 @@
 bonita-development-environment
 ==============================
 
-/!\ EARLY ALPHA STAGE /!\
+/!\ EARLY STAGE /!\
+
+More detailed steps focused on Engine avalable on http://community.bonitasoft.com/blog/how-contribute-bonita-bpm-engine
 
 A repository containing work to Setup the whole development environment of Bonita using the Oomph installer
 
@@ -13,7 +15,9 @@ A repository containing work to Setup the whole development environment of Bonit
 
 4 - Drag'n'drop the file when choosing catalog
 
-5 - Select the component you wish (Engine recommended for now)
+5 - Select the component you wish
+
+(Engine in Beta stage; Web and Studio in Alpha stage, they require to have built locally dependencies)
 
 6 - Go to the end of the wizard
 

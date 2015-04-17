@@ -12,7 +12,6 @@ Prerequisites:
 - For Web, access to Engine artefacts
 - For Studio:
     - access to Engine and Web artefacts
-    - access to a specific update site for Target Platform
 
 
 1 - Download Oomph installer: https://wiki.eclipse.org/Eclipse_Oomph_Installer

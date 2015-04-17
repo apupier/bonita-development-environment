@@ -1937,7 +1937,7 @@
       <requirement
           name="org.eclipse.emf.compare.feature.group"/>
       <requirement
-          name="org.eclipse.emf.compare.gmf.feature.group"/>
+          name="org.eclipse.emf.compare.diagram.gmf.feature.group"/>
       <requirement
           name="org.eclipse.emf.compare.ide.ui.feature.group"/>
       <requirement
@@ -1961,6 +1961,24 @@
         name="MasterBugFixing">
       <setupTask
           xsi:type="setup:CompoundTask"
+          name="Target Platform">
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="p2.mirror.url"
+            defaultValue="http://update-site.bonitasoft.com/p2/7.0/"
+            label="P2 Mirror URL for Target Platform"/>
+        <setupTask
+            xsi:type="setup:StringSubstitutionTask"
+            name="P2_MIRROR_URL"
+            value="${p2.mirror.url}">
+          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
+        </setupTask>
+        <setupTask
+            xsi:type="pde:TargetPlatformTask"
+            name="mirrored"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
           name="Launch Configuration used to initialize Workspace">
         <setupTask
             xsi:type="launching:LaunchTask"
@@ -1974,35 +1992,17 @@
         </setupTask>
         <setupTask
             xsi:type="launching:LaunchTask"
-            launcher="Build Tests Dependencies">
+            launcher="Build Test Dependencies">
           <description></description>
         </setupTask>
+        <setupTask
+            xsi:type="launching:LaunchTask"
+            launcher="Build Patched Plugins"/>
         <setupTask
             xsi:type="launching:LaunchTask"
             launcher="Build Plugins">
           <description></description>
         </setupTask>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Target Platform">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="p2.mirror.url"
-            value=""
-            defaultValue="http://repositories.rd.lan/p2/7.0"
-            label="P2 Mirror URL">
-          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:StringSubstitutionTask"
-            name="P2_MIRROR_URL"
-            value="${p2.mirror.url}">
-          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
-        </setupTask>
-        <setupTask
-            xsi:type="pde:TargetPlatformTask"
-            name="mirrored"/>
       </setupTask>
     </stream>
     <description></description>

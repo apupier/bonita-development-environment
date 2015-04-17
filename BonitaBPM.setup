@@ -1930,6 +1930,33 @@
             value="Ignore"/>
       </setupTask>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.emf.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.gmf.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.ide.ui.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.diffmerge.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.gmf.runtime.notation.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.gmf.feature.group"/>
+      <requirement
+          name="org.eclipse.gmf.tooling.feature.group"/>
+      <requirement
+          name="org.eclipse.gmf.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.edapt.recorder.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.edapt.runtime.feature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/edapt/releases/10x/"/>
+    </setupTask>
     <stream
         name="MasterBugFixing">
       <setupTask
@@ -1939,6 +1966,11 @@
             xsi:type="launching:LaunchTask"
             launcher="Build Platform">
           <description>Build Target Platform artefact in order to be able to generate Model Code</description>
+        </setupTask>
+        <setupTask
+            xsi:type="launching:LaunchTask"
+            launcher="Generate Model Code">
+          <description>Generate EMF and GMF code</description>
         </setupTask>
         <setupTask
             xsi:type="launching:LaunchTask"

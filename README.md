@@ -7,6 +7,14 @@ More detailed steps focused on Engine avalable on http://community.bonitasoft.co
 
 A repository containing work to Setup the whole development environment of Bonita using the Oomph installer
 
+Prerequisites:
+- For Engine, none
+- For Web, access to Engine artefacts
+- For Studio:
+    - access to Engine and Web artefacts
+    - access to a specific update site for Target Platform
+
+
 1 - Download Oomph installer: https://wiki.eclipse.org/Eclipse_Oomph_Installer
 
 2 - Download the BonitaBPM.setup file in this project

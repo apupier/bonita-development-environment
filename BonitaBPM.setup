@@ -1919,9 +1919,6 @@
           rootFolder="${git.clone.studio.location}/all-in-one"/>
     </setupTask>
     <setupTask
-        xsi:type="pde:TargetPlatformTask"
-        name="remote_platform"/>
-    <setupTask
         xsi:type="setup:CompoundTask"
         name="Preferences">
       <setupTask
@@ -1939,35 +1936,41 @@
           xsi:type="setup:CompoundTask"
           name="Launch Configuration used to initialize Workspace">
         <setupTask
-            xsi:type="setup:CompoundTask"
-            name="Code generation and Dependency retrieval">
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Generate Model Code">
-            <description>Generate code from model (EMF and GMF)</description>
-          </setupTask>
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Retrieve Connectors">
-            <description>Retrieve Bonita Connectors to embed in Studio</description>
-          </setupTask>
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Retrieve Console libs">
-            <description>Retrieve Tomcat bundle embedded in Studio</description>
-          </setupTask>
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Retrieve Page Designer war">
-            <description>Retrieve UI Designer embedded in Studio</description>
-          </setupTask>
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Retrieve Simulation Libs"/>
-          <setupTask
-              xsi:type="launching:LaunchTask"
-              launcher="Retrieve Bonitasoft Default Theme"/>
+            xsi:type="launching:LaunchTask"
+            launcher="Build Platform">
+          <description>Build Target Platform artefact in order to be able to generate Model Code</description>
         </setupTask>
+        <setupTask
+            xsi:type="launching:LaunchTask"
+            launcher="Build Tests Dependencies">
+          <description></description>
+        </setupTask>
+        <setupTask
+            xsi:type="launching:LaunchTask"
+            launcher="Build Plugins">
+          <description></description>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Target Platform">
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="p2.mirror.url"
+            value=""
+            defaultValue="http://repositories.rd.lan/p2/7.0"
+            label="P2 Mirror URL">
+          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:StringSubstitutionTask"
+            name="P2_MIRROR_URL"
+            value="${p2.mirror.url}">
+          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
+        </setupTask>
+        <setupTask
+            xsi:type="pde:TargetPlatformTask"
+            name="mirrored"/>
       </setupTask>
     </stream>
     <description></description>

@@ -9,7 +9,7 @@
     xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
-    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"a
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
@@ -2694,7 +2694,7 @@
       <requirement
           name="angularjs-eclipse-feature.feature.group"/>
       <repository
-          url="http://oss.opensagres.fr/angularjs-eclipse/0.8.0/"/>
+          url="http://oss.opensagres.fr/angularjs-eclipse/0.9.0/"/>
       <repository
           url="http://download.eclipse.org/webtools/updates"/>
       <repository

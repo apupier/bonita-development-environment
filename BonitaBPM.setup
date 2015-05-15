@@ -2688,12 +2688,20 @@
         xsi:type="setup.p2:P2Task">
       <requirement
           name="angularjs-eclipse-feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy.eclipse.feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy.m2eclipse.feature.feature.group"/>
+      <requirement
+          name="org.codehaus.groovy18.feature.feature.group"/>
       <repository
           url="http://oss.opensagres.fr/angularjs-eclipse/0.9.0/"/>
       <repository
           url="http://download.eclipse.org/webtools/updates"/>
       <repository
           url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+      <repository
+          url="http://dist.springsource.org/milestone/GRECLIPSE/e4.4/"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"

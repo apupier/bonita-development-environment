@@ -9,7 +9,7 @@
     xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
-    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"a
+    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
@@ -1791,11 +1791,6 @@
         <sourceLocator
             rootFolder="${git.clone.common.location}"/>
         <description>Import LaunchConfiguration project</description>
-      </setupTask>
-      <setupTask
-          xsi:type="launching:LaunchTask"
-          launcher="bonita-development-environment/Engine/LaunchConfigurations\[Engine]Clean Local Integration Test Bonita Home.launch">
-        <description>Clean Bonita Home</description>
       </setupTask>
     </setupTask>
     <setupTask

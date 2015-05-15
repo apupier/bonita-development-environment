@@ -1924,6 +1924,22 @@
             key="/instance/org.eclips.pde.api.tools/missing_default_api_profile"
             value="Ignore"/>
       </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.jdt.core">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
+            value="1.7"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
+            value="1.7"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
+            value="1.7"/>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">

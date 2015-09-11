@@ -32,6 +32,9 @@ Prerequisites:
 
 8 - Wait...
 
-9 - If chosen Engine, Open Package Explorer -> Other Projects; Right-click on bonita-engine -> Configure -> Configure and detect nested projects...
+9 - If chosen Engine
 
+		9.1 - Open Package Explorer -> Other Projects; Right-click on bonita-engine -> Configure -> Configure and detect nested projects...
+		9.2 - If some projects are red (should not be the case for more than 5 ones) Right-click --> Maven --> Update project configuration
+		9.3 - Configure Jobs to use Maven 3.0.5, the embedded version is 3.3.3 doesn't work with the Engine
 7 - Enjoy!

@@ -8,6 +8,7 @@
     xmlns:launching="http://www.eclipse.org/oomph/setup/launching/1.0"
     xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
     xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
+    xmlns:org.eclipse.oomph.smart.importer="http://www.eclipse.org/oomph/smart/importer/1.0"
     xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
@@ -15,7 +16,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/smart/importer/1.0 https://raw.githubusercontent.com/apupier/eclipse-oomph-smart-importer/master/setups/SmartImporter.ecore http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="bonita.bpm"
     label="Bonita BPM">
   <setupTask
@@ -66,6 +67,8 @@
         name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"/>
     <requirement
         name="org.eclipse.mylyn.github.feature.feature.group"/>
+    <requirement
+        name="org.sonatype.m2e.egit.feature.feature.group"/>
     <repository
         url="http://update.eclemma.org/"/>
     <repository
@@ -76,6 +79,12 @@
         url="http://download.eclipse.org/m2e-wtp/releases/luna/1.1"/>
     <repository
         url="http://findbugs.cs.umd.edu/eclipse/"/>
+    <repository
+        url="https://repository.takari.io/content/sites/m2e.extras/m2eclipse-egit/0.14.0/N/LATEST/"/>
+    <repository
+        url="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui"/>
+    <repository
+        url="http://download.jboss.org/jbosstools/mars/snapshots/builds/jbosstools-playground_master/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -1707,7 +1716,7 @@
       label="Engine">
     <setupTask
         xsi:type="git:GitCloneTask"
-        id="git.clone"
+        id="git.clone.engine"
         remoteURI="${github.repository.userowner.id}/bonita-engine">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
@@ -1773,13 +1782,6 @@
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
     <setupTask
-        xsi:type="maven:MavenImportTask">
-      <sourceLocator
-          rootFolder="${git.clone.location}"
-          locateNestedProjects="true"/>
-      <description>Import Engine Maven projects</description>
-    </setupTask>
-    <setupTask
         xsi:type="setup:CompoundTask"
         name="Launch Configurations">
       <setupTask
@@ -1787,6 +1789,16 @@
         <sourceLocator
             rootFolder="${git.clone.common.location}"/>
         <description>Import LaunchConfiguration project</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Launch Configurations">
+        <setupTask
+            xsi:type="projects:ProjectsImportTask">
+          <sourceLocator
+              rootFolder="${git.clone.common.location}"/>
+          <description>Import LaunchConfiguration project</description>
+        </setupTask>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1815,6 +1827,12 @@
             value="close::"/>
       </query>
       <description>Bonita BPM Community Engine Pull Requests</description>
+    </setupTask>
+    <setupTask
+        xsi:type="org.eclipse.oomph.smart.importer:SmartImporterTask">
+      <sourceLocators
+          rootFolder="${git.clone.engine.location}"
+          locateNestedProjects="true"/>
     </setupTask>
     <stream
         name="master"/>

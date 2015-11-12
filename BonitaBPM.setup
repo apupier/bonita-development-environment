@@ -84,7 +84,7 @@
     <repository
         url="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui"/>
     <repository
-        url="http://download.jboss.org/jbosstools/mars/snapshots/builds/jbosstools-playground_master/"/>
+        url="http://download.jboss.org/jbosstools/mars/snapshots/builds/jbosstools-playground_4.3.mars/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask

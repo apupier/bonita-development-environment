@@ -12,6 +12,7 @@ Prerequisites:
 - For Web, access to Engine artefacts
 - For Studio:
     - access to Engine and Web artefacts
+    - access to image-overlay-plugin https://github.com/bonitasoft/image-overlay-plugin
 
 
 1 - Download Oomph installer: https://wiki.eclipse.org/Eclipse_Oomph_Installer

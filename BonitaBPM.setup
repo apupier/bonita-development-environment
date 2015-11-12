@@ -1990,13 +1990,13 @@
         <setupTask
             xsi:type="setup:VariableTask"
             name="p2.mirror.url"
-            defaultValue="http://update-site.bonitasoft.com/p2/7.0/"
+            defaultValue="http://update-site.bonitasoft.com/p2/7.2/"
             label="P2 Mirror URL for Target Platform"/>
         <setupTask
             xsi:type="setup:StringSubstitutionTask"
             name="P2_MIRROR_URL"
             value="${p2.mirror.url}">
-          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.0 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
+          <description>P2 address to the Target Platform mirror, osample n Grenoble lan http://repositories.rd.lan/p2/7.2 , otherwise on windows file:///C:/TargetPlatform-7.0/platform.target.repo, on Linux file://TargetPlatform-7.0/platform.target.repo</description>
         </setupTask>
         <setupTask
             xsi:type="pde:TargetPlatformTask"

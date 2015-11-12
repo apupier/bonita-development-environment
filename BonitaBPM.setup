@@ -1983,7 +1983,7 @@
           url="http://download.eclipse.org/edapt/releases/10x/"/>
     </setupTask>
     <stream
-        name="MasterBugFixing">
+        name="master">
       <setupTask
           xsi:type="setup:CompoundTask"
           name="Target Platform">
